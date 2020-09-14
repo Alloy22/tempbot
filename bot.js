@@ -85,7 +85,7 @@ let now = moment().utcOffset(8)
                     'pin': dataJSON[i]["PASSWORD"]
                 }
                 request.post({url: "https://temptaking.ado.sg/group/MemberSubmitTemperature", form: payload}, function(err,httpResponse,body){ 
-                    bot.channels.cache.find(x => x.id === "755009681306419202").send("'" + `${now.format}: ${dataJSON[i]["NAME"]}\'s ${meridies} temperature got updated to ${randoTemp}. Status: ${body} <@${dataJSON[i]["ID"]}>` + "'")
+                    bot.channels.cache.find(x => x.id === "755009681306419202").send("'" + `${now.format()}: ${dataJSON[i]["NAME"]}\'s ${meridies} temperature got updated to ${randoTemp}. Status: ${body} <@${dataJSON[i]["ID"]}>` + "'")
                     console.log(err) 
                 })
                 dataJSON[i]["UPDATE"][meridies] = nowDay
@@ -94,7 +94,7 @@ let now = moment().utcOffset(8)
         }
     })
 
-bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format}: Attempted`)
+bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format()}: Attempted`)
 resetTempTimer(15*60*1000)
 
     
