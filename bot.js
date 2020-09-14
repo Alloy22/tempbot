@@ -92,6 +92,7 @@ function temp(){
         }
     })
 
+bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format}: Attempted`)
 resetTempTimer(15*60*1000)
 
     
