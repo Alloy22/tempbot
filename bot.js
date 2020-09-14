@@ -3,6 +3,8 @@ const fs = require('fs');
 const bot = new Discord.Client({});
 bot.commands = new Discord.Collection();
 const prefix = "!" || botSettings.prefix;
+const moment = require('moment');
+const request = require('request');
 
 fs.readdir("./commands/", (err, files) => {
     if (err) console.error(err);
@@ -45,46 +47,49 @@ bot.on("ready", async () => {
         console.log(e.stack);
     }
 
-    bot.user.setActivity('Shyam', {type: 'SLAPPING'})
+    //bot.user.setActivity('Shyam', {type: 'SLAPPING'})
+    temp() 
 
-    //temp() 
-
+    
+    
 });
 
 function temp(){
 
-    let guildIs = bot.guilds.cache.find(x => x.name === "Temp")
-    guildIs.channels.find(x => x.name === "data").fetchMessage('750342733838942289').then(statusMsg => {
+    bot.channels.cache.find(x => x.name === "data").messages.fetch({ limit: 30 }).then(msg => {
 
-        let parseJson = JSON.parse(statusMsg.content)
+        let dataJSON = msg.map(x => JSON.parse(x.content))
+
         let now = moment().utcOffset(8)
-        let meridies
-        
-        if (now.format("H") == 8) meridies = 'AM'
-        else if (now.format("H") == 15) meridies = 'PM'
-        
-        if (meridies && meridies != parseJson.meridies) {
+        let nowHR = now.format("H")
+        let nowDay = now.format("D")
+        let meridies = nowHR <= 11 ? "AM" :
+            "PM"
 
-            parseJson.meridies = meridies
-            console.log(now.format("DD/MM/YYYY"))
-            let payload = {
-                'groupCode': "6391aac7eed11e1993aa0e708be4f84f",
-                'date': now.format("DD/MM/YYYY"),
-                'meridies': meridies,
-                'memberId': 3123767,
-                'temperature': "36.1",
-                'pin': "2207"
+        //console.log(1,meridies, nowHR, nowDay)
+
+        for (let i in dataJSON) {
+
+            //console.log(2,dataJSON[i]["TIMING"]["AM"],dataJSON[i]["TIMING"]["PM"], dataJSON[i]["UPDATE"]["AM"], dataJSON[i]["UPDATE"]["PM"],dataJSON[i]["UPDATE"]["PM"] != nowDay)
+            if (!dataJSON[i]["APPROVED"]) continue; 
+            if ( dataJSON[i]["TIMING"][meridies] == nowHR && dataJSON[i]["UPDATE"][meridies] != nowDay) {
+                let randoTemp = ((Math.floor(Math.random() * ((dataJSON[i]["TEMPERATURE"]["MAX"]*10) - (dataJSON[i]["TEMPERATURE"]["MIN"]*10) + 1)) + (dataJSON[i]["TEMPERATURE"]["MIN"]*10)) / 10).toFixed(1)
+                let payload = {
+                    'groupCode': "6391aac7eed11e1993aa0e708be4f84f",
+                    'date': now.format("DD/MM/YYYY"),
+                    'meridies': meridies,
+                    'memberId': dataJSON[i]["ID"],
+                    'temperature': randoTemp,
+                    'pin': dataJSON[i]["PASSWORD"]
+                }
+                request.post({url: "https://temptaking.ado.sg/group/MemberSubmitTemperature", form: payload}, function(err,httpResponse,body){ 
+                    bot.channels.cache.find(x => x.id === "755009681306419202").send("'" + `${now.format}: ${dataJSON[i]["NAME"]}\'s ${meridies} temperature got updated to ${randoTemp}. Status: ${body} <@${dataJSON[i]["ID"]}>` + "'")
+                    console.log(err) 
+                })
+                dataJSON[i]["UPDATE"][meridies] = nowDay
+                msg.filter(x => x.content.startsWith(`{"NAME":"${dataJSON[i]["NAME"]}"`)).first().edit(JSON.stringify(dataJSON[i]))
             }
-            request.post({url: "https://temptaking.ado.sg/group/MemberSubmitTemperature", form: payload}, function(err,httpResponse,body){ 
-                guildIs.channels.find(x => x.name === "test").send(body)
-                console.log(err) 
-            })
-            
-            statusMsg.edit(JSON.stringify(parseJson))            
         }
-        else guildIs.channels.find(x => x.name === "test").send("Attempted!")
-        resetTempTimer(5*60*1000)
-
     })
 
     

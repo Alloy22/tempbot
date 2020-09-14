@@ -1,0 +1,432 @@
+{
+    "groupName": "92 T W",
+    "groupCode": "6391aac7eed11e1993aa0e708be4f84f",
+    "members": [
+        {
+            "id": "3120266",
+            "identifier": "Aarav Tanti",
+            "hasPin": true
+        },
+        {
+            "id": "3118173",
+            "identifier": "Abbass",
+            "hasPin": true
+        },
+        {
+            "id": "3119349",
+            "identifier": "Abilash",
+            "hasPin": true
+        },
+        {
+            "id": "3120076",
+            "identifier": "Affiq Arsat",
+            "hasPin": true
+        },
+        {
+            "id": "3117938",
+            "identifier": "Afiq",
+            "hasPin": true
+        },
+        {
+            "id": "3117277",
+            "identifier": "Aidil",
+            "hasPin": true
+        },
+        {
+            "id": "3118559",
+            "identifier": "Alif",
+            "hasPin": true
+        },
+        {
+            "id": "3123767",
+            "identifier": "Aloysius",
+            "hasPin": true
+        },
+        {
+            "id": "3119272",
+            "identifier": "Amjad",
+            "hasPin": true
+        },
+        {
+            "id": "3118934",
+            "identifier": "Andre",
+            "hasPin": true
+        },
+        {
+            "id": "3101302",
+            "identifier": "Andrew",
+            "hasPin": true
+        },
+        {
+            "id": "3120306",
+            "identifier": "Anthony plazo",
+            "hasPin": true
+        },
+        {
+            "id": "3118690",
+            "identifier": "Ashley",
+            "hasPin": true
+        },
+        {
+            "id": "3118417",
+            "identifier": "Benenic",
+            "hasPin": true
+        },
+        {
+            "id": "3120116",
+            "identifier": "Benjamin",
+            "hasPin": true
+        },
+        {
+            "id": "3120224",
+            "identifier": "Chuan Kun",
+            "hasPin": true
+        },
+        {
+            "id": "3117065",
+            "identifier": "Danial F",
+            "hasPin": true
+        },
+        {
+            "id": "3102520",
+            "identifier": "Daniel Wang",
+            "hasPin": true
+        },
+        {
+            "id": "3103901",
+            "identifier": "Dean Phang",
+            "hasPin": true
+        },
+        {
+            "id": "3118735",
+            "identifier": "Desmond",
+            "hasPin": true
+        },
+        {
+            "id": "3120549",
+            "identifier": "Dominic Tay",
+            "hasPin": true
+        },
+        {
+            "id": "3123794",
+            "identifier": "Elijah",
+            "hasPin": true
+        },
+        {
+            "id": "3102557",
+            "identifier": "Emmanuel",
+            "hasPin": true
+        },
+        {
+            "id": "3120520",
+            "identifier": "Ethan wong",
+            "hasPin": true
+        },
+        {
+            "id": "3118970",
+            "identifier": "Eugene",
+            "hasPin": true
+        },
+        {
+            "id": "3101549",
+            "identifier": "Faisal Azman",
+            "hasPin": true
+        },
+        {
+            "id": "3118367",
+            "identifier": "Faliq",
+            "hasPin": true
+        },
+        {
+            "id": "3101017",
+            "identifier": "Farhan",
+            "hasPin": true
+        },
+        {
+            "id": "3100595",
+            "identifier": "Firdaus Talif",
+            "hasPin": true
+        },
+        {
+            "id": "3123735",
+            "identifier": "Gerald",
+            "hasPin": true
+        },
+        {
+            "id": "3120387",
+            "identifier": "Glenn goh",
+            "hasPin": true
+        },
+        {
+            "id": "3118117",
+            "identifier": "Gotwin",
+            "hasPin": true
+        },
+        {
+            "id": "3119235",
+            "identifier": "Guan rong",
+            "hasPin": true
+        },
+        {
+            "id": "3118785",
+            "identifier": "Guang yao",
+            "hasPin": true
+        },
+        {
+            "id": "3118711",
+            "identifier": "Hai en",
+            "hasPin": true
+        },
+        {
+            "id": "3101000",
+            "identifier": "Hawa",
+            "hasPin": true
+        },
+        {
+            "id": "3118440",
+            "identifier": "Henry",
+            "hasPin": true
+        },
+        {
+            "id": "3379216",
+            "identifier": "Irfan K",
+            "hasPin": true
+        },
+        {
+            "id": "3123842",
+            "identifier": "Joel ong",
+            "hasPin": true
+        },
+        {
+            "id": "3100946",
+            "identifier": "Jolie",
+            "hasPin": true
+        },
+        {
+            "id": "3117813",
+            "identifier": "Joshua",
+            "hasPin": true
+        },
+        {
+            "id": "3119107",
+            "identifier": "Jun rong",
+            "hasPin": true
+        },
+        {
+            "id": "3118905",
+            "identifier": "Keith",
+            "hasPin": true
+        },
+        {
+            "id": "3118001",
+            "identifier": "Kenji",
+            "hasPin": true
+        },
+        {
+            "id": "3101042",
+            "identifier": "Khairul",
+            "hasPin": true
+        },
+        {
+            "id": "3119379",
+            "identifier": "Kim seng",
+            "hasPin": true
+        },
+        {
+            "id": "3120583",
+            "identifier": "Linkesh kumar",
+            "hasPin": true
+        },
+        {
+            "id": "3118077",
+            "identifier": "Mao sheng",
+            "hasPin": true
+        },
+        {
+            "id": "3117517",
+            "identifier": "Marcus",
+            "hasPin": true
+        },
+        {
+            "id": "3123753",
+            "identifier": "Max lee",
+            "hasPin": true
+        },
+        {
+            "id": "3119942",
+            "identifier": "Mhmd Afiq",
+            "hasPin": true
+        },
+        {
+            "id": "3119129",
+            "identifier": "Min de",
+            "hasPin": true
+        },
+        {
+            "id": "3117702",
+            "identifier": "Ming han",
+            "hasPin": true
+        },
+        {
+            "id": "3120350",
+            "identifier": "Muhd Adam",
+            "hasPin": true
+        },
+        {
+            "id": "3120479",
+            "identifier": "Muhd Hilmi",
+            "hasPin": true
+        },
+        {
+            "id": "3118494",
+            "identifier": "Nathaniel",
+            "hasPin": true
+        },
+        {
+            "id": "3119407",
+            "identifier": "Naung",
+            "hasPin": true
+        },
+        {
+            "id": "3120647",
+            "identifier": "Nazri zaini",
+            "hasPin": true
+        },
+        {
+            "id": "3120169",
+            "identifier": "Nordzi",
+            "hasPin": true
+        },
+        {
+            "id": "3120018",
+            "identifier": "Nur Hakim",
+            "hasPin": true
+        },
+        {
+            "id": "3101220",
+            "identifier": "Nur Irfan",
+            "hasPin": true
+        },
+        {
+            "id": "3118384",
+            "identifier": "Philip",
+            "hasPin": true
+        },
+        {
+            "id": "3100980",
+            "identifier": "Raden",
+            "hasPin": true
+        },
+        {
+            "id": "3119296",
+            "identifier": "Ren cong",
+            "hasPin": true
+        },
+        {
+            "id": "3118869",
+            "identifier": "Ryan",
+            "hasPin": true
+        },
+        {
+            "id": "3117137",
+            "identifier": "Ryan Daniel",
+            "hasPin": true
+        },
+        {
+            "id": "3123861",
+            "identifier": "Sachin",
+            "hasPin": true
+        },
+        {
+            "id": "3117333",
+            "identifier": "Sakthi",
+            "hasPin": true
+        },
+        {
+            "id": "3119437",
+            "identifier": "Shao you",
+            "hasPin": true
+        },
+        {
+            "id": "3117768",
+            "identifier": "Sharun",
+            "hasPin": true
+        },
+        {
+            "id": "3118031",
+            "identifier": "Shen xu",
+            "hasPin": true
+        },
+        {
+            "id": "3123821",
+            "identifier": "Shyam",
+            "hasPin": true
+        },
+        {
+            "id": "3119972",
+            "identifier": "Sin tha",
+            "hasPin": true
+        },
+        {
+            "id": "3117223",
+            "identifier": "Sufi",
+            "hasPin": true
+        },
+        {
+            "id": "7687327",
+            "identifier": "Syukri",
+            "hasPin": true
+        },
+        {
+            "id": "3123911",
+            "identifier": "Teng yu",
+            "hasPin": true
+        },
+        {
+            "id": "3118334",
+            "identifier": "Tianwen",
+            "hasPin": true
+        },
+        {
+            "id": "3118523",
+            "identifier": "Vincent",
+            "hasPin": true
+        },
+        {
+            "id": "3117624",
+            "identifier": "Xiwen",
+            "hasPin": true
+        },
+        {
+            "id": "3101313",
+            "identifier": "Zhangsong",
+            "hasPin": true
+        },
+        {
+            "id": "3119326",
+            "identifier": "Zharfan",
+            "hasPin": true
+        },
+        {
+            "id": "3317632",
+            "identifier": "Zhengxiang",
+            "hasPin": true
+        },
+        {
+            "id": "3119166",
+            "identifier": "Zhi yuan",
+            "hasPin": true
+        },
+        {
+            "id": "3119802",
+            "identifier": "Zul Hamzi",
+            "hasPin": true
+        },
+        {
+            "id": "3117876",
+            "identifier": "Zulhelmi",
+            "hasPin": true
+        }
+    ]
+}
+        
