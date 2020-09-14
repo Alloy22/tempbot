@@ -56,11 +56,13 @@ bot.on("ready", async () => {
 
 function temp(){
 
+let now = moment().utcOffset(8)
+
     bot.channels.cache.find(x => x.name === "data").messages.fetch({ limit: 30 }).then(msg => {
 
         let dataJSON = msg.map(x => JSON.parse(x.content))
 
-        let now = moment().utcOffset(8)
+       
         let nowHR = now.format("H")
         let nowDay = now.format("D")
         let meridies = nowHR <= 11 ? "AM" :
