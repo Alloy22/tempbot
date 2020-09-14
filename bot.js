@@ -92,7 +92,14 @@ function temp(){
         }
     })
 
+resetTempTimer(15*60*1000)
+
     
 }
 
+function resetTempTimer(timeSet){
+
+setTimeout(temp, timeSet)
+
+}
 bot.login(process.env.token);
