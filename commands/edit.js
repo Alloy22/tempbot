@@ -105,7 +105,7 @@ module.exports.run = async (bot, message, args) => {
             }
             bot.channels.cache.find(x => x.name === "data").messages.fetch({ limit: 30 }).then(msg => {
 
-                let user = msg.filter(x => x.content.startsWith(`{"NAME":"${args[1].toUpperCase()}"`))
+                let user = msg.filter(x => x.content.startsWith(`{"NAME":"${args.splice(1).join(" ").toUpperCase()}"`))
                 let userJSON = user.map(x => JSON.parse(x.content))
 
                 userJSON[0]["APPROVED"] = args[0] == "approve" ? true :
