@@ -20,8 +20,8 @@ module.exports.run = async (bot, message, args) => {
 
             const userName = message.author.username
 
-            const embedMsg = await message.author.send({ embed: getEMB(answers, userName) })
-            const question = await message.author.send('`' + questions[0] + '`'); // store the question message object to a constant to be used later
+            const embedMsg = message.author.send({ embed: getEMB(answers, userName) })
+            const question = message.author.send('`' + questions[0] + '`'); // store the question message object to a constant to be used later
 
             const filter = msg => msg.author.id === message.author.id; // creates the filter where it will only look for messages sent by the message author
             const collector = question.channel.createMessageCollector(filter, { time: 180 * 1000 }); // creates a message collector with a time limit of 60 seconds - upon that, it'll emit the 'end' event
