@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
                 "Name on the Temptaking App:",
                 "4 digit password on the App:",
                 "Range of Temperature [Format: XX.X Eg: 36.0]\nMINIMUM:",
-                "Range of Temperature [Format: XX.X Eg: 37.0]\nMINIMUM:",
+                "Range of Temperature [Format: XX.X Eg: 37.0]\nMAXIMUM:",
                 "Timing in HRS [Eg: 9 would mean 0900HRS, 11 would mean 1100HRS]\nAM:",
                 "Timing in HRS [Eg: 15 would mean 1500HRS, 18 would mean 1800HRS]\nPM:"
             ]
@@ -105,7 +105,7 @@ module.exports.run = async (bot, message, args) => {
             }
             bot.channels.cache.find(x => x.name === "data").messages.fetch({ limit: 30 }).then(msg => {
 
-                let user = msg.filter(x => x.content.startsWith(`{"NAME":"${args[1].toUpperCase()}"`))
+                let user = msg.filter(x => x.content.startsWith(`{"NAME":"${args.splice(1).join(" ").toUpperCase()}"`))
                 let userJSON = user.map(x => JSON.parse(x.content))
 
                 userJSON[0]["APPROVED"] = args[0] == "approve" ? true :

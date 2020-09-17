@@ -53,11 +53,13 @@ bot.on("ready", async () => {
 
 function temp(){
 
+let now = moment().utcOffset(8)
+
     bot.channels.cache.find(x => x.name === "data").messages.fetch({ limit: 30 }).then(msg => {
 
         let dataJSON = msg.map(x => JSON.parse(x.content))
 
-        let now = moment().utcOffset(8)
+       
         let nowHR = now.format("H")
         let nowDay = now.format("D")
         let meridies = nowHR <= 11 ? "AM" :
@@ -80,14 +82,24 @@ function temp(){
                     'pin': dataJSON[i]["PASSWORD"]
                 }
                 request.post({url: "https://temptaking.ado.sg/group/MemberSubmitTemperature", form: payload}, function(err,httpResponse,body){ 
-                    bot.channels.cache.find(x => x.id === "755009681306419202").send("'" + `${now.format}: ${dataJSON[i]["NAME"]}\'s ${meridies} temperature got updated to ${randoTemp}. Status: ${body} <@${dataJSON[i]["ID"]}>` + "'")
+                    bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format()}: ${dataJSON[i]["NAME"]}\'s ${meridies} temperature got updated to ${randoTemp}. Status: ${body} <@${dataJSON[i]["DISCORDID"]}>`)
                     console.log(err) 
                 })
                 dataJSON[i]["UPDATE"][meridies] = nowDay
                 msg.filter(x => x.content.startsWith(`{"NAME":"${dataJSON[i]["NAME"]}"`)).first().edit(JSON.stringify(dataJSON[i]))
             }
         }
-    })    
+    })
+
+bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format()}: Attempted`)
+resetTempTimer(15*60*1000)
+
+    
 }
 
+function resetTempTimer(timeSet){
+
+setTimeout(temp, timeSet)
+
+}
 bot.login(process.env.token);
