@@ -48,10 +48,7 @@ bot.on("ready", async () => {
     }
 
     //bot.user.setActivity('Shyam', {type: 'SLAPPING'})
-    temp() 
-
-    
-    
+    temp()    
 });
 
 function temp(){
@@ -90,9 +87,7 @@ function temp(){
                 msg.filter(x => x.content.startsWith(`{"NAME":"${dataJSON[i]["NAME"]}"`)).first().edit(JSON.stringify(dataJSON[i]))
             }
         }
-    })
-
-    
+    })    
 }
 
 bot.login(process.env.token);
