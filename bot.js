@@ -47,32 +47,30 @@ bot.on("ready", async () => {
         console.log(e.stack);
     }
 
-    //bot.user.setActivity('Shyam', {type: 'SLAPPING'})
-    temp()    
+    temp()
 });
 
-function temp(){
+function temp() {
 
-let now = moment().utcOffset(8)
+    let now = moment().utcOffset(8)
 
     bot.channels.cache.find(x => x.name === "data").messages.fetch({ limit: 30 }).then(msg => {
 
         let dataJSON = msg.map(x => JSON.parse(x.content))
 
-       
+
         let nowHR = now.format("H")
         let nowDay = now.format("D")
         let meridies = nowHR <= 11 ? "AM" :
             "PM"
 
-        //console.log(1,meridies, nowHR, nowDay)
 
         for (let i in dataJSON) {
 
             //console.log(2,dataJSON[i]["TIMING"]["AM"],dataJSON[i]["TIMING"]["PM"], dataJSON[i]["UPDATE"]["AM"], dataJSON[i]["UPDATE"]["PM"],dataJSON[i]["UPDATE"]["PM"] != nowDay)
-            if (!dataJSON[i]["APPROVED"]) continue; 
-            if ( dataJSON[i]["TIMING"][meridies] == nowHR && dataJSON[i]["UPDATE"][meridies] != nowDay) {
-                let randoTemp = ((Math.floor(Math.random() * ((dataJSON[i]["TEMPERATURE"]["MAX"]*10) - (dataJSON[i]["TEMPERATURE"]["MIN"]*10) + 1)) + (dataJSON[i]["TEMPERATURE"]["MIN"]*10)) / 10).toFixed(1)
+            if (!dataJSON[i]["APPROVED"]) continue;
+            if (dataJSON[i]["TIMING"][meridies] == nowHR && dataJSON[i]["UPDATE"][meridies] != nowDay) {
+                let randoTemp = ((Math.floor(Math.random() * ((dataJSON[i]["TEMPERATURE"]["MAX"] * 10) - (dataJSON[i]["TEMPERATURE"]["MIN"] * 10) + 1)) + (dataJSON[i]["TEMPERATURE"]["MIN"] * 10)) / 10).toFixed(1)
                 let payload = {
                     'groupCode': "6391aac7eed11e1993aa0e708be4f84f",
                     'date': now.format("DD/MM/YYYY"),
@@ -81,9 +79,9 @@ let now = moment().utcOffset(8)
                     'temperature': randoTemp,
                     'pin': dataJSON[i]["PASSWORD"]
                 }
-                request.post({url: "https://temptaking.ado.sg/group/MemberSubmitTemperature", form: payload}, function(err,httpResponse,body){ 
+                request.post({ url: "https://temptaking.ado.sg/group/MemberSubmitTemperature", form: payload }, function (err, httpResponse, body) {
                     bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format()}: ${dataJSON[i]["NAME"]}\'s ${meridies} temperature got updated to ${randoTemp}. Status: ${body} <@${dataJSON[i]["DISCORDID"]}>`)
-                    console.log(err) 
+                    console.log(`Error: ${err} - ${httpResponse}`)
                 })
                 dataJSON[i]["UPDATE"][meridies] = nowDay
                 msg.filter(x => x.content.startsWith(`{"NAME":"${dataJSON[i]["NAME"]}"`)).first().edit(JSON.stringify(dataJSON[i]))
@@ -91,15 +89,11 @@ let now = moment().utcOffset(8)
         }
     })
 
-bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format()}: Attempted`)
-resetTempTimer(15*60*1000)
-
-    
+    bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format()}: Attempted`)
+    resetTempTimer(15 * 60 * 1000)
 }
 
-function resetTempTimer(timeSet){
-
-setTimeout(temp, timeSet)
-
+function resetTempTimer(timeSet) {
+    setTimeout(temp, timeSet)
 }
-bot.login(process.env.token);
+bot.login(process.env.token);//
