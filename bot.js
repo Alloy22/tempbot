@@ -80,7 +80,7 @@ function temp() {
                     'pin': dataJSON[i]["PASSWORD"]
                 }
                 request.post({ url: "https://temptaking.ado.sg/group/MemberSubmitTemperature", form: payload }, function (err, httpResponse, body) {
-                    bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format()}: ${dataJSON[i]["NAME"]}\'s ${meridies} temperature got updated to ${randoTemp}. Status: ${body} <@${dataJSON[i]["DISCORDID"]}>`)
+                    bot.channels.cache.find(x => x.id === "755009681306419202").send(`${now.format()}: ${dataJSON[i]["NAME"]}\'s ${meridies} temperature got updated to ${randoTemp}. Status: ${body}`) // <@${dataJSON[i]["DISCORDID"]}>
                     console.log(`Error: ${err} - ${httpResponse}`)
                 })
                 dataJSON[i]["UPDATE"][meridies] = nowDay
